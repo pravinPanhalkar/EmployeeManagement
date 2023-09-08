@@ -1,0 +1,19 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; //1rem = 10/16 = 0.625 i.e 62.5%
+}
+
+body {
+    font-family: $font-display;
+    font-size: 1.6rem;
+    // background-color: $page-back-color;
+    color: $primary-color;
+}
