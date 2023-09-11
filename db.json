@@ -1,0 +1,91 @@
+{
+  "employee": [
+    {
+      "id": 1,
+      "name": "Suhas Jadhav",
+      "username": "sj007",
+      "address": "dehugaon, Mumbai 456586",
+      "finance": [
+        {
+          "year": "2022",
+          "salary": [
+            {
+              "month": "Jan",
+              "amount": 45000
+            },
+            {
+              "month": "Feb",
+              "amount": 45000
+            },
+            {
+              "month": "Mar",
+              "amount": 45000
+            },
+            {
+              "month": "Apr",
+              "amount": 45000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Prity Hawaldar",
+      "username": "ph008",
+      "address": "vaus 35 ambedkar road, Mumbai 456586",
+      "finance": [
+        {
+          "year": "2022",
+          "salary": [
+            {
+              "month": "Jan",
+              "amount": 95000
+            },
+            {
+              "month": "Feb",
+              "amount": 95000
+            },
+            {
+              "month": "Mar",
+              "amount": 94500
+            },
+            {
+              "month": "Apr",
+              "amount": 94900
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Swapnapreety Hawaldar",
+      "username": "sh010",
+      "address": "vaus 35 ambedkar road, Mumbai 456586",
+      "finance": [
+        {
+          "year": "2022",
+          "salary": [
+            {
+              "month": "Jan",
+              "amount": 75000
+            },
+            {
+              "month": "Feb",
+              "amount": 74805
+            },
+            {
+              "month": "Mar",
+              "amount": 75000
+            },
+            {
+              "month": "Apr",
+              "amount": 74000
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

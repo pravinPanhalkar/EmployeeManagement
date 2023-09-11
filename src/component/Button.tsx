@@ -1,11 +1,7 @@
-import React from 'react'
+import * as React from "react";
 
 const Emp_Button = () => {
-  return (
-    <div>Emp_Button
-        
-    </div>
-  )
-}
+  return <div>Emp_Button</div>;
+};
 
-export default Emp_Button
+export default Emp_Button;

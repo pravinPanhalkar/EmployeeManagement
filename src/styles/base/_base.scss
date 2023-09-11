@@ -17,3 +17,21 @@ body {
     // background-color: $page-back-color;
     color: $primary-color;
 }
+
+@mixin respond($breakpoint) {
+    @if $breakpoint== mobile {
+        @media only screen and (max-width: $bp-mobile) {
+            @content;
+        }
+    }
+    @if $breakpoint== tab {
+        @media only screen and (max-width: $bp-tab) {
+            @content;
+        }
+    }
+    @if $breakpoint== desk {
+        @media only screen and (max-width: $bp-desk) {
+            @content;
+        }
+    }
+}

@@ -1,3 +1,20 @@
-.test {
-    // background-color: blue;
+.emp_cont {
+    display: block;
+
+    & .main {
+        display: flex;
+        flex-direction: row;
+        height: calc(100vh - 64px);
+
+        &__drawer {
+            width: 20vw;
+            min-width: 15vw;
+            padding: 1rem;
+            border-right: $border;
+        }
+        &__content {
+            flex-grow: 1;
+            padding: 1rem;
+        }
+    }
 }
