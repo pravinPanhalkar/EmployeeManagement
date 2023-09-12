@@ -6,7 +6,8 @@ export const EmployeeContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [emp, setEmp] = useState(true);
+  const [emp, setEmp] = useState([]);
+
   return (
     <EmployeeContext.Provider value={{ emp, setEmp }}>
       {children}

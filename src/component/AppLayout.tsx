@@ -1,23 +1,27 @@
 import Header from "./Header";
 import Drawer from "./Drawer";
 import RouteConfig from "./RouteConfig";
-import { useLoginContext } from "../context/useContext";
+import { useEmployeeContext, useLoginContext } from "../context/useContext";
 import Login from "../pages/Login/Login";
 import { useEffect } from "react";
-// import getData from "../api/empApi.js";
 
 const AppLayout = () => {
   const { isLogged } = useLoginContext();
+  const { setEmp } = useEmployeeContext();
 
-  const getdata = async () => {
-    await fetch("http://localhost:3030/posts").then((resp) => {
-      console.log(resp.json());
-    });
+  const getEmpData = async () => {
+    await fetch("http://localhost:3031/employee")
+      .then((resp) => resp.json())
+      .then((result) => {
+        setEmp(result);
+      })
+      .catch((error) => console.log(error));
   };
-
   useEffect(() => {
-    getdata();
-  });
+    getEmpData();
+    console.log(isLogged);
+  }, []);
+
   return (
     <>
       {isLogged ? (

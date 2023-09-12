@@ -6,7 +6,7 @@ export const LoginContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(null);
   return (
     <LoginContext.Provider value={{ isLogged, setIsLogged }}>
       {children}
