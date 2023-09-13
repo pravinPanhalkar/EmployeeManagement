@@ -16,17 +16,6 @@ import {
 } from "recharts";
 import { useEmployeeContext } from "../../context/useContext";
 
-const data = [
-  {
-    month: "Jan",
-    salary: 24000,
-  },
-  {
-    month: "Feb",
-    salary: 30000,
-  },
-];
-
 const Dashboard = () => {
   const { emp } = useEmployeeContext();
   const layout = [
@@ -37,38 +26,6 @@ const Dashboard = () => {
   useEffect(() => {
     console.log(emp);
   });
-
-  const listItems2 = emp.map((userItem, index) => {
-    return (
-      <div key={index} className="chart-card">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            width={800}
-            height={700}
-            data={userItem.salary}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="month" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="amount" fill="#8884d8" />
-          </BarChart>
-        </ResponsiveContainer>
-        <p>{userItem.name}</p>
-      </div>
-    );
-  });
-
-  const chartRender = () => {
-    return barChart;
-  };
 
   const barChart = emp.map((userItem, index) => {
     if (userItem.graphkey === 1) {
@@ -169,35 +126,6 @@ const Dashboard = () => {
     <div>
       <GridLayout layout={layout} cols={12} rowHeight={30} width={1200}>
         {barChart}
-        {/* <div key="a" className="chart-card">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              width={800}
-              height={700}
-              data={data}
-              margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="month" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="salary" fill="#8884d8" />
-            </BarChart>
-          </ResponsiveContainer>
-          <p>Pravin</p>
-        </div>
-        <div key="b" className="chart-card">
-          b
-        </div>
-        <div key="c" className="chart-card">
-          c
-        </div> */}
       </GridLayout>
     </div>
   );

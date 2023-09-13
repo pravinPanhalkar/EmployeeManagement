@@ -19,7 +19,6 @@ const Login = () => {
   };
 
   const loginHandler = () => {
-    console.log("login handler");
     const userSaved = "pravin";
     const pwdSaved = "abc";
     if (userSaved === user && pwdSaved === pwd) {
