@@ -8,6 +8,7 @@ const FormInput = forwardRef<Props, ref>((props, innerRef) => (
     label={props.label}
     type={props.type}
     variant="standard"
+    onChange={props.onChange}
     style={{ width: "100%" }}
   />
 ));
