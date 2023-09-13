@@ -4,13 +4,14 @@ import RouteConfig from "./RouteConfig";
 import { useEmployeeContext, useLoginContext } from "../context/useContext";
 import Login from "../pages/Login/Login";
 import { useEffect } from "react";
+import { BASE_URL } from "../Utils/constant";
 
 const AppLayout = () => {
   const { isLogged } = useLoginContext();
   const { setEmp } = useEmployeeContext();
 
   const getEmpData = async () => {
-    await fetch("http://localhost:3031/employee")
+    await fetch(BASE_URL + "/employee")
       .then((resp) => resp.json())
       .then((result) => {
         setEmp(result);

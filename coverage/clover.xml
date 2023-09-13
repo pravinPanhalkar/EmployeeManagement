@@ -1,19 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1694582635120" clover="3.2.0">
-  <project timestamp="1694582635120" name="All files">
-    <metrics statements="10" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0" elements="13" coveredelements="0" complexity="0" loc="10" ncloc="10" packages="1" files="1" classes="1"/>
-    <file name="Login.tsx" path="D:\ShareFolderCommon\EmployeeManagementSystem\employee-management\src\pages\Login\Login.tsx">
-      <metrics statements="10" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-      <line num="6" count="0" type="stmt"/>
-      <line num="7" count="0" type="stmt"/>
-      <line num="8" count="0" type="stmt"/>
-      <line num="9" count="0" type="stmt"/>
-      <line num="11" count="0" type="stmt"/>
-      <line num="12" count="0" type="stmt"/>
-      <line num="15" count="0" type="stmt"/>
-      <line num="16" count="0" type="stmt"/>
-      <line num="17" count="0" type="stmt"/>
-      <line num="21" count="0" type="stmt"/>
-    </file>
+<coverage generated="1694590644931" clover="3.2.0">
+  <project timestamp="1694590644931" name="All files">
+    <metrics statements="28" coveredstatements="11" conditionals="2" coveredconditionals="0" methods="10" coveredmethods="3" elements="40" coveredelements="14" complexity="0" loc="28" ncloc="28" packages="4" files="6" classes="6"/>
+    <package name="employee-management">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="jest.config.ts" path="D:\ShareFolderCommon\EmployeeManagementSystem\employee-management\jest.config.ts">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="employee-management.src.Utils">
+      <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="constant.tsx" path="D:\ShareFolderCommon\EmployeeManagementSystem\employee-management\src\Utils\constant.tsx">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="employee-management.src.component">
+      <metrics statements="16" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="8" coveredmethods="2"/>
+      <file name="AppLayout.tsx" path="D:\ShareFolderCommon\EmployeeManagementSystem\employee-management\src\component\AppLayout.tsx">
+        <metrics statements="12" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+      </file>
+      <file name="Button.tsx" path="D:\ShareFolderCommon\EmployeeManagementSystem\employee-management\src\component\Button.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+      </file>
+      <file name="Input.tsx" path="D:\ShareFolderCommon\EmployeeManagementSystem\employee-management\src\component\Input.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="employee-management.src.pages.Login">
+      <metrics statements="9" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="Login.tsx" path="D:\ShareFolderCommon\EmployeeManagementSystem\employee-management\src\pages\Login\Login.tsx">
+        <metrics statements="9" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

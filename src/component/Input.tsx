@@ -1,9 +1,9 @@
 import TextField from "@mui/material/TextField";
 import React, { forwardRef } from "react";
 
-const FormInput = forwardRef<Ref, Props>((props, ref) => (
+const FormInput = forwardRef<Props, ref>((props, innerRef) => (
   <TextField
-    ref={ref}
+    ref={innerRef}
     // id={}
     label={props.label}
     type={props.type}

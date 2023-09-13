@@ -18,3 +18,5 @@ export const routeList = [
     drawerIcon: <ListAlt fontSize="large" />,
   },
 ];
+
+export const BASE_URL = "http://localhost:3030";
