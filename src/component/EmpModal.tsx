@@ -26,27 +26,23 @@ const EmpModal = (props: Props) => {
       name: name,
       username: "sh010",
       address: address,
-      finance: [
+      graphkey: Math.floor(Math.random() * 3) + 1,
+      salary: [
         {
-          year: "2022",
-          salary: [
-            {
-              month: "Jan",
-              amount: 75000,
-            },
-            {
-              month: "Feb",
-              amount: 74805,
-            },
-            {
-              month: "Mar",
-              amount: 75000,
-            },
-            {
-              month: "Apr",
-              amount: 74000,
-            },
-          ],
+          month: "Jan23",
+          amount: Math.floor(Math.random() * 100000) + 5000,
+        },
+        {
+          month: "Feb23",
+          amount: Math.floor(Math.random() * 100000) + 5000,
+        },
+        {
+          month: "Mar23",
+          amount: Math.floor(Math.random() * 100000) + 5000,
+        },
+        {
+          month: "Apr23",
+          amount: Math.floor(Math.random() * 100000) + 5000,
         },
       ],
     };

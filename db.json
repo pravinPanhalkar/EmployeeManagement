@@ -5,27 +5,23 @@
       "name": "Suhas Jadhav",
       "username": "sj007",
       "address": "dehugaon, Mumbai 456586",
-      "finance": [
+      "graphkey": 1,
+      "salary": [
         {
-          "year": "2022",
-          "salary": [
-            {
-              "month": "Jan",
-              "amount": 45000
-            },
-            {
-              "month": "Feb",
-              "amount": 45000
-            },
-            {
-              "month": "Mar",
-              "amount": 45000
-            },
-            {
-              "month": "Apr",
-              "amount": 45000
-            }
-          ]
+          "month": "Jan23",
+          "amount": 45000
+        },
+        {
+          "month": "Feb23",
+          "amount": 45000
+        },
+        {
+          "month": "Mar23",
+          "amount": 45000
+        },
+        {
+          "month": "Apr23",
+          "amount": 45000
         }
       ]
     },
@@ -34,27 +30,23 @@
       "name": "Prity Hawaldar",
       "username": "ph008",
       "address": "vaus 35 ambedkar road, Mumbai 456586",
-      "finance": [
+      "graphkey": 2,
+      "salary": [
         {
-          "year": "2022",
-          "salary": [
-            {
-              "month": "Jan",
-              "amount": 95000
-            },
-            {
-              "month": "Feb",
-              "amount": 95000
-            },
-            {
-              "month": "Mar",
-              "amount": 94500
-            },
-            {
-              "month": "Apr",
-              "amount": 94900
-            }
-          ]
+          "month": "Jan23",
+          "amount": 95000
+        },
+        {
+          "month": "Feb23",
+          "amount": 95000
+        },
+        {
+          "month": "Mar23",
+          "amount": 94500
+        },
+        {
+          "month": "Apr23",
+          "amount": 94900
         }
       ]
     },
@@ -63,58 +55,75 @@
       "name": "Swapnapreety Hawaldar",
       "username": "sh010",
       "address": "vaus 35 ambedkar road, Mumbai 456586",
-      "finance": [
+      "graphkey": 3,
+      "salary": [
         {
-          "year": "2022",
-          "salary": [
-            {
-              "month": "Jan",
-              "amount": 75000
-            },
-            {
-              "month": "Feb",
-              "amount": 74805
-            },
-            {
-              "month": "Mar",
-              "amount": 75000
-            },
-            {
-              "month": "Apr",
-              "amount": 74000
-            }
-          ]
+          "month": "Jan23",
+          "amount": 75000
+        },
+        {
+          "month": "Feb23",
+          "amount": 74805
+        },
+        {
+          "month": "Mar23",
+          "amount": 75000
+        },
+        {
+          "month": "Apr23",
+          "amount": 74000
         }
       ]
     },
     {
       "name": "Pravin Panhalkar",
       "username": "sh010",
-      "address": "323 tal miraj distr- sangli",
-      "finance": [
+      "address": "25 naveen gavthan dudhgaon",
+      "graphkey": 3,
+      "salary": [
         {
-          "year": "2022",
-          "salary": [
-            {
-              "month": "Jan",
-              "amount": 75000
-            },
-            {
-              "month": "Feb",
-              "amount": 74805
-            },
-            {
-              "month": "Mar",
-              "amount": 75000
-            },
-            {
-              "month": "Apr",
-              "amount": 74000
-            }
-          ]
+          "month": "Jan23",
+          "amount": 37857
+        },
+        {
+          "month": "Feb23",
+          "amount": 34699
+        },
+        {
+          "month": "Mar23",
+          "amount": 98673
+        },
+        {
+          "month": "Apr23",
+          "amount": 72346
         }
       ],
       "id": 4
+    },
+    {
+      "name": "susma",
+      "username": "sh010",
+      "address": "america",
+      "graphkey": 2,
+      "salary": [
+        {
+          "month": "Jan23",
+          "amount": 18109
+        },
+        {
+          "month": "Feb23",
+          "amount": 49820
+        },
+        {
+          "month": "Mar23",
+          "amount": 84594
+        },
+        {
+          "month": "Apr23",
+          "amount": 11313
+        }
+      ],
+      "id": 5
     }
   ]
 }

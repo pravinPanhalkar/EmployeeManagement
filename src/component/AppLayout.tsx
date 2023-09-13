@@ -20,7 +20,6 @@ const AppLayout = () => {
   };
   useEffect(() => {
     getEmpData();
-    console.log(isLogged);
   }, []);
 
   return (
