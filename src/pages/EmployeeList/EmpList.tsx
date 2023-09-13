@@ -1,9 +1,7 @@
 import React, { useRef } from "react";
 import { useEmployeeContext } from "../../context/useContext";
 import EmpBtn from "../../component/Button";
-import FormInput from "../../component/Input";
-import Modal from "@mui/material/Modal";
-import Box from "@mui/material/Box";
+
 import EmpModal from "../../component/EmpModal";
 
 const EmpList = () => {

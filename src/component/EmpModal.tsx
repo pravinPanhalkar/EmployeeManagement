@@ -1,7 +1,6 @@
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import React from "react";
-import FormInput from "./Input";
 
 const style = {
   position: "absolute",
@@ -20,12 +19,9 @@ const style = {
 const EmpModal = (props) => {
   const { open, handleClose } = props;
   return (
-    <>
-      <Modal open={open} onClose={handleClose}>
-        <FormInput label="User Name" type="text" />
-        <FormInput label="Password" type="password" />
-      </Modal>
-    </>
+    <Modal open={open} onClose={handleClose}>
+      <Box sx={style}>Modal</Box>
+    </Modal>
   );
 };
 
