@@ -6,7 +6,6 @@ import { useLoginContext } from "../../context/useContext";
 const Login = () => {
   const userRef = useRef(null);
   const pwdRef = useRef(null);
-  const btnRef = useRef(null);
   const { setIsLogged } = useLoginContext();
 
   const loginHandler = () => {
@@ -21,9 +20,7 @@ const Login = () => {
         <FormInput label="User Name" ref={userRef} type="text" />
         <FormInput label="Password" ref={pwdRef} type="password" />
         <div className="login-form__btn">
-          <EmpBtn ref={btnRef} onClick={loginHandler}>
-            Login
-          </EmpBtn>
+          <EmpBtn onClick={loginHandler}>Login</EmpBtn>
         </div>
       </form>
     </div>

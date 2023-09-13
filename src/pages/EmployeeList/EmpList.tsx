@@ -3,9 +3,10 @@ import { useEmployeeContext } from "../../context/useContext";
 import EmpBtn from "../../component/Button";
 
 import EmpModal from "../../component/EmpModal";
+import { BASE_URL } from "../../Utils/constant";
 
 const EmpList = () => {
-  const { emp } = useEmployeeContext();
+  const { emp, setEmp } = useEmployeeContext();
   const btnRef = useRef();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -29,11 +30,12 @@ const EmpList = () => {
     console.log("add new");
     handleOpen();
   };
+
   return (
     <>
       <div className="emp-list">
         <div className="btn">
-          <EmpBtn ref={btnRef} onClick={addNew}>
+          <EmpBtn btnRef={btnRef} onClick={addNew}>
             Add
           </EmpBtn>
         </div>

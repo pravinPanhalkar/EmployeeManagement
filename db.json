@@ -86,6 +86,35 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Pravin Panhalkar",
+      "username": "sh010",
+      "address": "323 tal miraj distr- sangli",
+      "finance": [
+        {
+          "year": "2022",
+          "salary": [
+            {
+              "month": "Jan",
+              "amount": 75000
+            },
+            {
+              "month": "Feb",
+              "amount": 74805
+            },
+            {
+              "month": "Mar",
+              "amount": 75000
+            },
+            {
+              "month": "Apr",
+              "amount": 74000
+            }
+          ]
+        }
+      ],
+      "id": 4
     }
   ]
 }

@@ -1,26 +1,109 @@
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import React from "react";
+import TextField from "@mui/material/TextField";
+import { useRef, useState } from "react";
+import EmpBtn from "./Button";
+import { BASE_URL } from "../Utils/constant";
+import { useEmployeeContext } from "../context/useContext";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  pt: 2,
-  px: 4,
-  pb: 3,
-};
-
-const EmpModal = (props) => {
+const EmpModal = (props: Props) => {
   const { open, handleClose } = props;
+  const addRef = useRef(null);
+  const { setEmp } = useEmployeeContext();
+  const [name, setname] = useState("");
+  const [address, setAddress] = useState("");
+
+  const addressHandler = (e) => {
+    setAddress(e.target.value);
+  };
+
+  const nameHandler = (e) => {
+    setname(e.target.value);
+  };
+
+  const addRecord = () => {
+    const obj = {
+      name: name,
+      username: "sh010",
+      address: address,
+      finance: [
+        {
+          year: "2022",
+          salary: [
+            {
+              month: "Jan",
+              amount: 75000,
+            },
+            {
+              month: "Feb",
+              amount: 74805,
+            },
+            {
+              month: "Mar",
+              amount: 75000,
+            },
+            {
+              month: "Apr",
+              amount: 74000,
+            },
+          ],
+        },
+      ],
+    };
+    if (!name || !address) {
+      return;
+    }
+    fetch(BASE_URL + "/employee", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify(obj),
+    })
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((data) => {
+        if (!data) return;
+        fetch(BASE_URL + "/employee")
+          .then((resp) => {
+            return resp.json();
+          })
+          .then((result) => {
+            setEmp(result);
+            handleClose();
+          });
+      })
+
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <Modal open={open} onClose={handleClose}>
-      <Box sx={style}>Modal</Box>
+      <Box className="modal">
+        <TextField
+          label="Name"
+          type="text"
+          variant="standard"
+          style={{ width: "100%" }}
+          onChange={nameHandler}
+        />
+        <TextField
+          label="Address"
+          type="text"
+          variant="standard"
+          style={{ width: "100%" }}
+          onChange={addressHandler}
+        />
+        <div style={{ width: "100%", textAlign: "right" }}>
+          <EmpBtn btnRef={addRef} onClick={addRecord}>
+            Add
+          </EmpBtn>
+        </div>
+      </Box>
     </Modal>
   );
 };

@@ -1,0 +1,10 @@
+.modal {
+    @include absCenter;
+    background-color: $page-back-color;
+    width: 50rem;
+    height: 20rem;
+    padding: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: $standard-gap;
+}
