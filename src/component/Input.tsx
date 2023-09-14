@@ -10,6 +10,7 @@ const FormInput = forwardRef<Props, ref>((props, innerRef) => (
     variant="standard"
     onChange={props.onChange}
     style={{ width: "100%" }}
+    data-testid={props.dataId}
   />
 ));
 

@@ -9,6 +9,7 @@ const config :Config = {
         name:"TEST CASES",
         color:"redBright"
     },
+    setupFilesAfterEnv:["<rootDir>/src/testUtils/setupTest.ts"],
     moduleDirectories:["node_modules","src"],
     moduleFileExtensions :["js","ts","json","tsx"],
     collectCoverageFrom:[
@@ -16,10 +17,12 @@ const config :Config = {
         "**/*.{js,tsx,ts}",
         "!**/*.{scss}",
     ],
-    testMatch: [
-        "**/__tests__/**/*.[jt]s?(x)",
-        "**/?(*.)+(spec|test).[tj]s?(x)"
-        ],
+    "testEnvironment": "jsdom"
+   
+    // testMatch: [
+    //     "**/__tests__/**/*.[jt]s?(x)",
+    //     "**/?(*.)+(spec|test).[tj]s?(x)"
+    //     ],
     
 
 }

@@ -31,19 +31,21 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <form className="login-form">
+    <div className="login-container" data-testid="login-cont">
+      <form className="login-form" data-testid="login-form">
         <FormInput
           label="User Name"
           ref={userRef}
           type="text"
           onChange={userHandler}
+          dataId="username"
         />
         <FormInput
           label="Password"
           ref={pwdRef}
           type="password"
           onChange={pwdHandler}
+          dataId="password"
         />
         <div className="login-form__btn">
           <EmpBtn onClick={loginHandler}>Login</EmpBtn>
