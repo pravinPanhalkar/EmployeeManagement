@@ -6,7 +6,7 @@ jest.mock("../../context/useContext", () => ({
   useLoginContext: jest.fn(),
 }));
 
-describe("Login Component", () => {
+describe("Login Component.", () => {
   const setLogMock = jest.fn();
   beforeEach(() => {
     (useLoginContext as jest.Mock).mockReturnValue({ setIsLogged: setLogMock });

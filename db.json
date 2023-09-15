@@ -74,31 +74,6 @@
           "amount": 74000
         }
       ]
-    },
-    {
-      "name": "pravin",
-      "username": "sh010",
-      "address": "testing",
-      "graphkey": 4,
-      "salary": [
-        {
-          "month": "Jan23",
-          "amount": 28679
-        },
-        {
-          "month": "Feb23",
-          "amount": 84395
-        },
-        {
-          "month": "Mar23",
-          "amount": 81976
-        },
-        {
-          "month": "Apr23",
-          "amount": 6576
-        }
-      ],
-      "id": 4
     }
   ]
 }
