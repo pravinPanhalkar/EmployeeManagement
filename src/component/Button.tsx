@@ -2,7 +2,7 @@ import { Add } from "@mui/icons-material";
 import Button from "@mui/material/Button";
 import * as React from "react";
 
-const EmpBtn = React.forwardRef<Props, ref>((props, inRef) => {
+export const EmpBtn = React.forwardRef<Props, ref>((props, inRef) => {
   const btnRef = React.useRef(null);
   React.useImperativeHandle(inRef, () => ({
     addData: () => {
@@ -25,5 +25,3 @@ const EmpBtn = React.forwardRef<Props, ref>((props, inRef) => {
     </Button>
   );
 });
-
-export default EmpBtn;

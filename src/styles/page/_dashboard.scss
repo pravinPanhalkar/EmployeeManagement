@@ -1,6 +1,12 @@
 .chart-card {
-    width: 800px;
-    height: 700px;
+    min-width: 300px;
+    min-height: 200px;
     border: 1px solid gray;
     padding: 20px;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

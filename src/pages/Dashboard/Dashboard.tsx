@@ -16,12 +16,13 @@ import {
 } from "recharts";
 import { useEmployeeContext } from "../../context/useContext";
 
-const Dashboard = () => {
+export const Dashboard = () => {
   const { emp } = useEmployeeContext();
   const layout = [
     { i: "a", x: 0, y: 0, w: 1, h: 2 },
-    { i: "b", x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4 },
-    { i: "c", x: 4, y: 0, w: 1, h: 2 },
+    { i: "b", x: 0, y: 0, w: 3, h: 2, minW: 2, maxW: 4 },
+    { i: "c", x: 0, y: 0, w: 4, h: 2 },
+    { i: "d", x: 0, y: 0, w: 4, h: 2 },
   ];
   useEffect(() => {
     console.log(emp);
@@ -30,7 +31,7 @@ const Dashboard = () => {
   const barChart = emp.map((userItem, index) => {
     if (userItem.graphkey === 1) {
       return (
-        <div key={index} className="chart-card">
+        <div key="a" className="chart-card">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               width={800}
@@ -58,7 +59,7 @@ const Dashboard = () => {
 
     if (userItem.graphkey === 2) {
       return (
-        <div key={index} className="chart-card">
+        <div key="b" className="chart-card">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart
               width={500}
@@ -90,7 +91,40 @@ const Dashboard = () => {
 
     if (userItem.graphkey === 3) {
       return (
-        <div key={index} className="chart-card">
+        <div key="c" className="chart-card">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart
+              width={500}
+              height={300}
+              data={userItem.salary}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="month" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line
+                type="monotone"
+                dataKey="amount"
+                stroke="#8884d8"
+                strokeDasharray="5 5"
+              />
+            </LineChart>
+          </ResponsiveContainer>
+          <p>{userItem.name}</p>
+        </div>
+      );
+    }
+
+    if (userItem.graphkey === 4) {
+      return (
+        <div key="d" className="chart-card">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               width={500}
@@ -124,11 +158,9 @@ const Dashboard = () => {
 
   return (
     <div>
-      <GridLayout layout={layout} cols={12} rowHeight={30} width={1200}>
+      <GridLayout layout={layout} cols={12} rowHeight={100} width={1200}>
         {barChart}
       </GridLayout>
     </div>
   );
 };
-
-export default Dashboard;

@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import NoFound from "../pages/Notfound/NoFound";
 import { routeList } from "../Utils/constant";
-import Login from "../pages/Login/Login";
+import { Login } from "../pages/Login/Login";
 
-const RouteConfig = () => {
+export const RouteConfig = () => {
   return (
     <>
       <Routes>
@@ -18,5 +18,3 @@ const RouteConfig = () => {
     </>
   );
 };
-
-export default RouteConfig;

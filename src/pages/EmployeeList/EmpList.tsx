@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import { useEmployeeContext } from "../../context/useContext";
-import EmpBtn from "../../component/Button";
+import { EmpBtn } from "../../component/Button";
 
 import EmpModal from "../../component/EmpModal";
 import { BASE_URL } from "../../Utils/constant";
 
-const EmpList = () => {
+export const EmpList = () => {
   const { emp, setEmp } = useEmployeeContext();
   const btnRef = useRef();
   const [open, setOpen] = React.useState(false);
@@ -54,5 +54,3 @@ const EmpList = () => {
     </>
   );
 };
-
-export default EmpList;

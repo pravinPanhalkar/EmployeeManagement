@@ -4,12 +4,14 @@
     & .main {
         display: flex;
         flex-direction: row;
-        height: calc(100vh - 64px);
+        // height: calc(100vh - 64px);
+        height: 100vh;
 
         &__drawer {
             width: 20vw;
             min-width: 15vw;
             padding: 1rem;
+            height: 100%;
             border-right: $border;
         }
         &__content {

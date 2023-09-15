@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import FormInput from "../../component/Input";
-import EmpBtn from "../../component/Button";
+import { EmpBtn } from "../../component/Button";
 import { useLoginContext } from "../../context/useContext";
 
-const Login = () => {
+export const Login = () => {
   const userRef = useRef(null);
   const pwdRef = useRef(null);
   const { setIsLogged } = useLoginContext();
@@ -54,5 +54,3 @@ const Login = () => {
     </div>
   );
 };
-
-export default Login;

@@ -6,7 +6,7 @@ import {
   fireEvent,
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Login from "./Login";
+import { Login } from "./Login";
 
 describe("login test Suite", () => {
   test("should render login", () => {
@@ -29,6 +29,6 @@ describe("login test Suite", () => {
     const username = "pravin";
     const password = "abc";
     const loginHandler = jest.fn();
-    expect(true).toBe(true);
+    // expect(true).toBe(true);
   });
 });

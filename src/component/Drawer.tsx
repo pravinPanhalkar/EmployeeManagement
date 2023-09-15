@@ -5,7 +5,7 @@ import MenuList from "@mui/material/MenuList";
 import { Link } from "react-router-dom";
 import { routeList } from "../Utils/constant";
 
-const Drawer = () => {
+export const Drawer = () => {
   return (
     <div>
       <MenuList>
@@ -20,26 +20,6 @@ const Drawer = () => {
           );
         })}
       </MenuList>
-      {/* <MenuList>
-        <MenuItem>
-          <ListItemIcon>
-            <AutoAwesomeMosaic fontSize="large" />
-          </ListItemIcon>
-          <ListItemText>
-            <Link to="/">Dashboard</Link>
-          </ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <ListAlt fontSize="large" />
-          </ListItemIcon>
-          <ListItemText>
-            <Link to="/list">Employee List</Link>
-          </ListItemText>
-        </MenuItem>
-      </MenuList> */}
     </div>
   );
 };
-
-export default Drawer;

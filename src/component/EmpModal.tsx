@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import { useRef, useState } from "react";
-import EmpBtn from "./Button";
+import { EmpBtn } from "./Button";
 import { BASE_URL } from "../Utils/constant";
 import { useEmployeeContext } from "../context/useContext";
 
@@ -26,7 +26,7 @@ const EmpModal = (props: Props) => {
       name: name,
       username: "sh010",
       address: address,
-      graphkey: Math.floor(Math.random() * 3) + 1,
+      graphkey: 4,
       salary: [
         {
           month: "Jan23",

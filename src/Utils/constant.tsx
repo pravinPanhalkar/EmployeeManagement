@@ -1,5 +1,5 @@
-import Dashboard from "../pages/Dashboard/Dashboard";
-import EmpList from "../pages/EmployeeList/EmpList";
+import { Dashboard } from "../pages/Dashboard/Dashboard";
+import { EmpList } from "../pages/EmployeeList/EmpList";
 import { AutoAwesomeMosaic, ListAlt } from "@mui/icons-material";
 
 export const routeList = [

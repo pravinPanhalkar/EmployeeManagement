@@ -76,54 +76,29 @@
       ]
     },
     {
-      "name": "Pravin Panhalkar",
+      "name": "pravin",
       "username": "sh010",
-      "address": "25 naveen gavthan dudhgaon",
-      "graphkey": 3,
+      "address": "testing",
+      "graphkey": 4,
       "salary": [
         {
           "month": "Jan23",
-          "amount": 37857
+          "amount": 28679
         },
         {
           "month": "Feb23",
-          "amount": 34699
+          "amount": 84395
         },
         {
           "month": "Mar23",
-          "amount": 98673
+          "amount": 81976
         },
         {
           "month": "Apr23",
-          "amount": 72346
+          "amount": 6576
         }
       ],
       "id": 4
-    },
-    {
-      "name": "susma",
-      "username": "sh010",
-      "address": "america",
-      "graphkey": 2,
-      "salary": [
-        {
-          "month": "Jan23",
-          "amount": 18109
-        },
-        {
-          "month": "Feb23",
-          "amount": 49820
-        },
-        {
-          "month": "Mar23",
-          "amount": 84594
-        },
-        {
-          "month": "Apr23",
-          "amount": 11313
-        }
-      ],
-      "id": 5
     }
   ]
 }
