@@ -11,18 +11,14 @@ const config :Config = {
     },
     setupFilesAfterEnv:["<rootDir>/src/testUtils/setupTest.ts"],
     moduleDirectories:["node_modules","src"],
-    moduleFileExtensions :["js","ts","json","tsx"],
+    moduleFileExtensions :["ts","json","tsx"],
     collectCoverageFrom:[
         "!<rootDir>/node_modules/**",
-        "**/*.{js,tsx,ts}",
+        "**/*.{tsx,ts}",
         "!**/*.{scss}",
     ],
     "testEnvironment": "jsdom"
-   
-    // testMatch: [
-    //     "**/__tests__/**/*.[jt]s?(x)",
-    //     "**/?(*.)+(spec|test).[tj]s?(x)"
-    //     ],
+  
     
 
 }
