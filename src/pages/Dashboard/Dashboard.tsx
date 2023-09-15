@@ -15,23 +15,22 @@ import {
   Area,
 } from "recharts";
 import { useEmployeeContext } from "../../context/useContext";
+import { BarChartItem } from "../../component/charts/BarChartItem";
+import Box from "@mui/material/Box";
 
 export const Dashboard = () => {
   const { emp } = useEmployeeContext();
   const layout = [
-    { i: "a", x: 0, y: 0, w: 1, h: 2 },
-    { i: "b", x: 0, y: 0, w: 3, h: 2, minW: 2, maxW: 4 },
-    { i: "c", x: 0, y: 0, w: 4, h: 2 },
-    { i: "d", x: 0, y: 0, w: 4, h: 2 },
+    { i: "card1", x: 0, y: 0, w: 2, h: 2 },
+    { i: "card2", x: 0, y: 0, w: 2, h: 2, minW: 2, maxW: 4 },
+    { i: "card3", x: 4, y: 0, w: 2, h: 2 },
+    { i: "card4", x: 4, y: 4, w: 2, h: 2 },
   ];
-  useEffect(() => {
-    console.log(emp);
-  });
 
-  const barChart = emp.map((userItem, index) => {
+  const getCharts = emp.map((userItem: User) => {
     if (userItem.graphkey === 1) {
       return (
-        <div key="a" className="chart-card">
+        <Box key="card1" className="chart-card" data-testid="card-item">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               width={800}
@@ -53,13 +52,13 @@ export const Dashboard = () => {
             </BarChart>
           </ResponsiveContainer>
           <p>{userItem.name}</p>
-        </div>
+        </Box>
       );
     }
 
     if (userItem.graphkey === 2) {
       return (
-        <div key="b" className="chart-card">
+        <Box key="card2" className="chart-card" data-testid="card-item">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart
               width={500}
@@ -85,13 +84,13 @@ export const Dashboard = () => {
             </AreaChart>
           </ResponsiveContainer>
           <p>{userItem.name}</p>
-        </div>
+        </Box>
       );
     }
 
     if (userItem.graphkey === 3) {
       return (
-        <div key="c" className="chart-card">
+        <Box key="card3" className="chart-card" data-testid="card-item">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               width={500}
@@ -118,13 +117,13 @@ export const Dashboard = () => {
             </LineChart>
           </ResponsiveContainer>
           <p>{userItem.name}</p>
-        </div>
+        </Box>
       );
     }
 
     if (userItem.graphkey === 4) {
       return (
-        <div key="d" className="chart-card">
+        <Box key="card4" className="chart-card" data-testid="card-item">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               width={500}
@@ -151,16 +150,24 @@ export const Dashboard = () => {
             </LineChart>
           </ResponsiveContainer>
           <p>{userItem.name}</p>
-        </div>
+        </Box>
       );
     }
   });
 
   return (
-    <div>
+    <Box data-testid="chart-container">
       <GridLayout layout={layout} cols={12} rowHeight={100} width={1200}>
-        {barChart}
+        {getCharts}
       </GridLayout>
-    </div>
+    </Box>
   );
+};
+
+export type User = {
+  id?: number;
+  name?: string;
+  address?: string;
+  graphkey?: number;
+  salary?: [];
 };

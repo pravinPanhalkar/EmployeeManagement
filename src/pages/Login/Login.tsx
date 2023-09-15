@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import FormInput from "../../component/Input";
 import { EmpBtn } from "../../component/Button";
 import { useLoginContext } from "../../context/useContext";
+import { Box } from "@mui/material";
 
 export const Login = () => {
   const userRef = useRef(null);
@@ -10,11 +11,13 @@ export const Login = () => {
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
 
-  const userHandler = (e: event) => {
+  const userHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const target = e.target;
+    console.log(target);
     setUser(e.target.value);
   };
 
-  const pwdHandler = (e: event) => {
+  const pwdHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPwd(e.target.value);
   };
 
@@ -31,7 +34,8 @@ export const Login = () => {
   };
 
   return (
-    <div className="login-container" data-testid="login-cont">
+    <Box className="login-container" data-testid="login-cont">
+      <h1>Sign In</h1>
       <form className="login-form" data-testid="login-form">
         <FormInput
           label="User Name"
@@ -47,10 +51,10 @@ export const Login = () => {
           onChange={pwdHandler}
           dataId="password"
         />
-        <div className="login-form__btn">
+        <Box className="login-form__btn">
           <EmpBtn onClick={loginHandler}>Login</EmpBtn>
-        </div>
+        </Box>
       </form>
-    </div>
+    </Box>
   );
 };

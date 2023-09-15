@@ -1,24 +1,28 @@
+import React, { useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
-import { useRef, useState } from "react";
 import { EmpBtn } from "./Button";
 import { BASE_URL } from "../Utils/constant";
 import { useEmployeeContext } from "../context/useContext";
 
-const EmpModal = (props: Props) => {
-  const { open, handleClose } = props;
+interface EmpModalProps {
+  open: boolean;
+  handleClose: () => void;
+}
+
+export const EmpModal: React.FC<EmpModalProps> = ({ open, handleClose }) => {
   const addRef = useRef(null);
   const { setEmp } = useEmployeeContext();
-  const [name, setname] = useState("");
+  const [name, setName] = useState("");
   const [address, setAddress] = useState("");
 
-  const addressHandler = (e) => {
+  const addressHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAddress(e.target.value);
   };
 
-  const nameHandler = (e) => {
-    setname(e.target.value);
+  const nameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
   };
 
   const addRecord = () => {
@@ -54,24 +58,17 @@ const EmpModal = (props: Props) => {
       headers: {
         "Content-Type": "application/json",
       },
-
       body: JSON.stringify(obj),
     })
-      .then((resp) => {
-        return resp.json();
-      })
-      .then((data) => {
-        if (!data) return;
+      .then((resp) => resp.json())
+      .then(() => {
         fetch(BASE_URL + "/employee")
-          .then((resp) => {
-            return resp.json();
-          })
+          .then((resp) => resp.json())
           .then((result) => {
             setEmp(result);
             handleClose();
           });
       })
-
       .catch((error) => {
         console.log(error);
       });
@@ -94,14 +91,12 @@ const EmpModal = (props: Props) => {
           style={{ width: "100%" }}
           onChange={addressHandler}
         />
-        <div style={{ width: "100%", textAlign: "right" }}>
-          <EmpBtn btnRef={addRef} onClick={addRecord}>
+        <Box style={{ width: "100%", textAlign: "right" }}>
+          <EmpBtn ref={addRef} onClick={addRecord}>
             Add
           </EmpBtn>
-        </div>
+        </Box>
       </Box>
     </Modal>
   );
 };
-
-export default EmpModal;

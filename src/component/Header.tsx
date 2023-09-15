@@ -3,16 +3,17 @@ import AppBar from "@mui/material/AppBar";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import { useLoginContext } from "../context/useContext";
+import Box from "@mui/material/Box";
 
-const Header = () => {
+export const Header = () => {
   const { setIsLogged } = useLoginContext();
-  const logout = (e) => {
+  const logout = () => {
     setIsLogged(false);
   };
   return (
-    <div>
+    <Box>
       <AppBar position="static">
-        <div className="header">
+        <Box className="header">
           <Toolbar variant="dense">EMS</Toolbar>
           <IconButton
             aria-label="exit"
@@ -23,10 +24,8 @@ const Header = () => {
           >
             <ExitToApp />
           </IconButton>
-        </div>
+        </Box>
       </AppBar>
-    </div>
+    </Box>
   );
 };
-
-export default Header;

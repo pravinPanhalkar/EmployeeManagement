@@ -1,22 +1,21 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useEmployeeContext } from "../../context/useContext";
 import { EmpBtn } from "../../component/Button";
 
-import EmpModal from "../../component/EmpModal";
-import { BASE_URL } from "../../Utils/constant";
+import { EmpModal } from "../../component/EmpModal";
+import Box from "@mui/material/Box";
 
 export const EmpList = () => {
-  const { emp, setEmp } = useEmployeeContext();
-  const btnRef = useRef();
+  const { emp } = useEmployeeContext();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const renderList = () => {
     const temp = emp.map(
-      (item: { id: string; name: string; address: string }, index) => {
+      (item: { id: string; name: string; address: string }) => {
         return (
-          <tr key={index} style={{ width: "50%", textAlign: "left" }}>
+          <tr key={item.id} style={{ width: "50%", textAlign: "left" }}>
             <td>{item.id}</td>
             <td>{item.name}</td>
             <td>{item.address}</td>
@@ -33,13 +32,11 @@ export const EmpList = () => {
 
   return (
     <>
-      <div className="emp-list">
-        <div className="btn">
-          <EmpBtn btnRef={btnRef} onClick={addNew}>
-            Add
-          </EmpBtn>
-        </div>
-        <table>
+      <Box className="emp-list" data-testid="list">
+        <Box className="btn">
+          <EmpBtn onClick={addNew}>Add</EmpBtn>
+        </Box>
+        <table data-testid="table">
           <thead style={{ width: "auto" }}>
             <tr>
               <th>ID</th>
@@ -49,7 +46,7 @@ export const EmpList = () => {
           </thead>
           <tbody>{renderList()}</tbody>
         </table>
-      </div>
+      </Box>
       <EmpModal open={open} handleClose={handleClose} />
     </>
   );

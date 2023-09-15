@@ -1,21 +1,29 @@
 .login-container {
     display: flex;
     justify-content: center;
-    align-content: center;
+    flex-direction: column;
+    // align-content: center;
     @include absCenter;
+    border: 1px solid gray;
+    height: 300px;
+    width: 500px;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
 
     .login-form {
-        width: 200px;
         display: flex;
+        width: 400px;
         flex-direction: column;
         gap: $standard-gap;
+        justify-content: center;
 
         input[type="text"] {
             font-size: 16px;
         }
 
         &__btn {
-            width: 200px;
+            width: 400px;
             text-align: right;
         }
     }

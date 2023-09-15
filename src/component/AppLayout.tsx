@@ -1,22 +1,34 @@
-import Header from "./Header";
+/**
+ * Component : AppLayout
+ * Description : Responsible for the layout and routing the application and handles rendering 
+ * based on the login status and ensure that employee data is fetched
+
+ */
+
+import { Header } from "./Header";
 import { Drawer } from "./Drawer";
 import { RouteConfig } from "./RouteConfig";
 import { useEmployeeContext, useLoginContext } from "../context/useContext";
 import { Login } from "../pages/Login/Login";
 import { useEffect } from "react";
 import { BASE_URL } from "../Utils/constant";
+import { Box } from "@mui/material";
 
-const AppLayout = () => {
+export const AppLayout = () => {
   const { isLogged } = useLoginContext();
   const { setEmp } = useEmployeeContext();
 
+  /**
+   * @description - get employee data from backend and update the context
+   */
   const getEmpData = async () => {
-    await fetch(BASE_URL + "/employee")
-      .then((resp) => resp.json())
-      .then((result) => {
-        setEmp(result);
-      })
-      .catch((error) => console.log(error));
+    try {
+      const resp = await fetch(BASE_URL + "/employee");
+      const result = await resp.json();
+      setEmp(result);
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     getEmpData();
@@ -25,22 +37,20 @@ const AppLayout = () => {
   return (
     <>
       {isLogged ? (
-        <div className="emp_cont">
+        <Box className="emp_cont">
           <Header />
           <main className="main">
-            <div className="main__drawer">
+            <Box className="main__drawer">
               <Drawer />
-            </div>
-            <div className="main__content">
+            </Box>
+            <Box className="main__content">
               <RouteConfig />
-            </div>
+            </Box>
           </main>
-        </div>
+        </Box>
       ) : (
         <Login />
       )}
     </>
   );
 };
-
-export default AppLayout;

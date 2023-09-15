@@ -1,0 +1,17 @@
+.menu {
+    display: block;
+    &__item {
+        margin-bottom: 12px !important;
+    }
+}
+
+a:-webkit-any-link {
+    text-decoration: none;
+    width: 100%;
+    display: inline-block;
+    height: 100%;
+    font-size: 16px;
+    &:hover {
+        color: black;
+    }
+}

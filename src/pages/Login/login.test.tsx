@@ -1,34 +1,52 @@
-import {
-  render,
-  screen,
-  cleanup,
-  renderHook,
-  fireEvent,
-} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { Login } from "./Login";
+import { useLoginContext } from "../../context/useContext";
 
-describe("login test Suite", () => {
-  test("should render login", () => {
-    render(<Login />);
-    const loginEl = screen.getByTestId("login-cont");
-    const loginFrm = screen.getByTestId("login-form");
-    const userinput = screen.getByTestId("username");
-    const password = screen.getByTestId("password");
-    const submitBtn = screen.getByRole("button");
-    expect(submitBtn).toBeInTheDocument();
-    // expect(loginEl).toMatchSnapshot();
-    expect(loginFrm).toBeInTheDocument();
-    expect(userinput).toBeInTheDocument();
-    expect(loginEl).toBeInTheDocument();
-    expect(password).toBeInTheDocument();
+jest.mock("../../context/useContext", () => ({
+  useLoginContext: jest.fn(),
+}));
+
+describe("Login Component", () => {
+  const setLogMock = jest.fn();
+  beforeEach(() => {
+    (useLoginContext as jest.Mock).mockReturnValue({ setIsLogged: setLogMock });
   });
 
-  test("submit username and password", () => {
-    // ARRANGE
-    const username = "pravin";
-    const password = "abc";
-    const loginHandler = jest.fn();
-    // expect(true).toBe(true);
+  it("should render all element", () => {
+    render(<Login />);
+    const usernameInput = screen.getByLabelText("User Name");
+    const passwordInput = screen.getByLabelText("Password");
+    const loginButton = screen.getByText("Login");
+
+    expect(usernameInput).toBeInTheDocument();
+    expect(passwordInput).toBeInTheDocument();
+    expect(loginButton).toBeInTheDocument();
+  });
+
+  it("on successful setIsLogged should be true", () => {
+    render(<Login />);
+    const usernameInput = screen.getByLabelText("User Name");
+    const passwordInput = screen.getByLabelText("Password");
+    const loginButton = screen.getByText("Login");
+
+    fireEvent.change(usernameInput, { target: { value: "pravin" } });
+    fireEvent.change(passwordInput, { target: { value: "abc" } });
+
+    fireEvent.click(loginButton);
+
+    expect(setLogMock).toHaveBeenCalledWith(true);
+  });
+
+  it("setIsLogged should be false on unsuccess attemp", () => {
+    render(<Login />);
+    const usernameInput = screen.getByLabelText("User Name");
+    const passwordInput = screen.getByLabelText("Password");
+    const loginButton = screen.getByText("Login");
+
+    fireEvent.change(usernameInput, { target: { value: "falseUser" } });
+    fireEvent.change(passwordInput, { target: { value: "falsePwd" } });
+
+    fireEvent.click(loginButton);
+    expect(setLogMock).toHaveBeenCalledWith(false);
   });
 });
