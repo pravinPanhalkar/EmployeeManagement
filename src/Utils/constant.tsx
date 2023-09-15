@@ -7,14 +7,14 @@ const routeList = [
     id: 1,
     name: "Dashboard",
     path: "/",
-    component: Dashboard,
+    component: <Dashboard />,
     drawerIcon: <AutoAwesomeMosaic fontSize="large" />,
   },
   {
     id: 2,
     name: "Employee List",
     path: "/list",
-    component: EmpList,
+    component: <EmpList />,
     drawerIcon: <ListAlt fontSize="large" />,
   },
 ];
