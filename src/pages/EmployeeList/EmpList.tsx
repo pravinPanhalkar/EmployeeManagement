@@ -26,7 +26,6 @@ export const EmpList = () => {
     return temp;
   };
   const addNew = () => {
-    console.log("add new");
     handleOpen();
   };
 

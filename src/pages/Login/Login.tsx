@@ -12,8 +12,6 @@ export const Login = () => {
   const [pwd, setPwd] = useState("");
 
   const userHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const target = e.target;
-    console.log(target);
     setUser(e.target.value);
   };
 
