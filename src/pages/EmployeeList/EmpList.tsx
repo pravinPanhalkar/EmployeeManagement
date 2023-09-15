@@ -5,7 +5,7 @@ import { EmpBtn } from "../../component/Button";
 import { EmpModal } from "../../component/EmpModal";
 import Box from "@mui/material/Box";
 
-export const EmpList = () => {
+const EmpList = () => {
   const { emp } = useEmployeeContext();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -50,3 +50,5 @@ export const EmpList = () => {
     </>
   );
 };
+
+export default EmpList;

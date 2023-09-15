@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { EmpList } from "./EmpList";
+import EmpList from "./EmpList";
 
 describe("EmpList Component", () => {
   it("list should be render.", () => {
