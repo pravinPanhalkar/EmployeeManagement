@@ -12,7 +12,7 @@ describe("Login Component", () => {
     (useLoginContext as jest.Mock).mockReturnValue({ setIsLogged: setLogMock });
   });
 
-  it("should render all element", () => {
+  it("should render all element.", () => {
     render(<Login />);
     const usernameInput = screen.getByLabelText("User Name");
     const passwordInput = screen.getByLabelText("Password");
@@ -23,7 +23,7 @@ describe("Login Component", () => {
     expect(loginButton).toBeInTheDocument();
   });
 
-  it("on successful setIsLogged should be true", () => {
+  it("on successful setIsLogged should be true.", () => {
     render(<Login />);
     const usernameInput = screen.getByLabelText("User Name");
     const passwordInput = screen.getByLabelText("Password");

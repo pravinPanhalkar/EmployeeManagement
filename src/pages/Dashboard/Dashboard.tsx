@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import GridLayout from "react-grid-layout";
 import {
   LineChart,
@@ -15,7 +14,6 @@ import {
   Area,
 } from "recharts";
 import { useEmployeeContext } from "../../context/useContext";
-import { BarChartItem } from "../../component/charts/BarChartItem";
 import Box from "@mui/material/Box";
 
 export const Dashboard = () => {
