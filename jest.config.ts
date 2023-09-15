@@ -11,10 +11,10 @@ const config :Config = {
     },
     setupFilesAfterEnv:["<rootDir>/src/testUtils/setupTest.ts"],
     moduleDirectories:["node_modules","src"],
-    moduleFileExtensions :["ts","json","tsx"],
+    moduleFileExtensions :["js","ts","json","tsx"],
     collectCoverageFrom:[
         "!<rootDir>/node_modules/**",
-        "**/*.{tsx,ts}",
+        "**/*.{js,tsx,ts}",
         "!**/*.{scss}",
     ],
     "testEnvironment": "jsdom"
