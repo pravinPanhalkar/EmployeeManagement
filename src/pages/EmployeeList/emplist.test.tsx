@@ -1,18 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { EmpList } from "./EmpList";
 
-// Mock useEmployeeContext to provide sample data
-jest.mock("../../context/useContext", () => ({
-  useEmployeeContext: jest.fn(() => ({
-    emp: [
-      { id: "1", name: "pravin", address: "123 mumbai east " },
-      { id: "2", name: "suhas", address: "456 Goa" },
-    ],
-  })),
-}));
-
 describe("EmpList Component", () => {
-  it('opens the modal when the "Add" button is clicked.', () => {
+  it("list should be render.", () => {
     render(<EmpList />);
     const el = screen.getByTestId("list");
     expect(el).toBeInTheDocument();
