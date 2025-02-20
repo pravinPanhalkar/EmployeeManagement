@@ -1,0 +1,45 @@
+name: React Tests
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - feature/*  # Any feature branch
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Tests with Coverage
+        run: npm run test:ci
+
+      - name: Upload Coverage Report (GitHub Artifacts)
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-${{ github.ref_name }}  # Stores per branch
+          path: coverage/
+
+      - name: Deploy Coverage Report to GitHub Pages
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev' || startsWith(github.ref, 'refs/heads/feature/')
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./coverage  # The folder containing coverage reports
+          destination_dir: coverage/${{ github.ref_name }}  # Separate per branch
