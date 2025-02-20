@@ -24,7 +24,7 @@ jobs:
       - name: Install Dependencies
         run: npm install --prefer-offline
       - name: Run Tests (Optimized)
-        run: npm run test -- --runInBand
+        run: npm run test -- --coverage --threads=false
 
   coverage:
     needs: test
