@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - dev
-      - feature/*  # Runs on any feature branch
+      - feature/*
   pull_request:
     branches:
       - main
@@ -27,27 +27,25 @@ jobs:
       - name: Cache Node Modules
         uses: actions/cache@v4
         with:
-          path: ~/.npm  # Cache location for npm
-          key: node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          path: ~/.npm
+          key: npm-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            node-modules-${{ runner.os }}-
+            npm-cache-${{ runner.os }}-
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install Dependencies
+        run: npm install --prefer-offline
 
-      - name: Run Tests with Coverage
-        run: npm run test
+      - name: Run Tests (PRs)
+        if: github.event_name == 'pull_request'
+        run: npm test -- --max-workers=2
+
+      - name: Run Tests with Coverage (Main Branch)
+        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev')
+        run: npm run test -- --max-workers=2 --coverage
 
       - name: Upload Coverage Report (GitHub Artifacts)
+        if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-${{ github.ref_name }}  # Unique coverage per branch
+          name: coverage-${{ github.ref_name }}
           path: coverage/
-
-      - name: Deploy Coverage Report to GitHub Pages
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev' || startsWith(github.ref, 'refs/heads/feature/')
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./coverage  # Folder containing coverage reports
-          destination_dir: coverage/${{ github.ref_name }}  # Separate per branch
