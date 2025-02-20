@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - dev
-      - feature/*  # Any feature branch
+      - feature/*  # Runs on any feature branch
   pull_request:
     branches:
       - main
@@ -24,6 +24,14 @@ jobs:
           node-version: 18
           cache: 'npm'
 
+      - name: Cache Node Modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm  # Cache location for npm
+          key: node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            node-modules-${{ runner.os }}-
+
       - name: Install dependencies
         run: npm install
 
@@ -33,7 +41,7 @@ jobs:
       - name: Upload Coverage Report (GitHub Artifacts)
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-${{ github.ref_name }}  # Stores per branch
+          name: coverage-${{ github.ref_name }}  # Unique coverage per branch
           path: coverage/
 
       - name: Deploy Coverage Report to GitHub Pages
@@ -41,5 +49,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./coverage  # The folder containing coverage reports
+          publish_dir: ./coverage  # Folder containing coverage reports
           destination_dir: coverage/${{ github.ref_name }}  # Separate per branch
