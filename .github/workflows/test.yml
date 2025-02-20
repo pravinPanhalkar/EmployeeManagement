@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - dev
-      - feature/*
+      - epic/*
   pull_request:
     branches:
       - main
@@ -13,38 +13,40 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: 'npm'
-
-      - name: Cache Node Modules
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: npm-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            npm-cache-${{ runner.os }}-
-
       - name: Install Dependencies
         run: npm install --prefer-offline
+      - name: Run Tests (Optimized)
+        run: npm test -- --max-workers=2 --runInBand
 
-      - name: Run Tests (PRs)
-        if: github.event_name == 'pull_request'
-        run: npm test -- --max-workers=2
-
-      - name: Run Tests with Coverage (Main Branch)
-        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev')
-        run: npm run test -- --max-workers=2 --coverage
-
-      - name: Upload Coverage Report (GitHub Artifacts)
-        if: success()
+  coverage:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+      - name: Install Dependencies
+        run: npm install --prefer-offline
+      - name: Cache Coverage
+        uses: actions/cache@v4
+        with:
+          path: coverage/
+          key: coverage-${{ github.ref }}
+      - name: Run Coverage
+        run: npm run test -- --coverage --max-workers=2 --runInBand
+      - name: Upload Coverage Report
         uses: actions/upload-artifact@v4
         with:
           name: coverage-${{ github.ref_name }}
